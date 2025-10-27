@@ -36,6 +36,11 @@
         <p>No borrowing history yet.</p>
     {% endif %}
 
-    <p><a href="{% url 'logout' %}">Logout</a></p>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="text-red-600 hover:text-red-800 font-medium">
+            Logout
+        </button>
+    </form>
 </body>
 </html>
