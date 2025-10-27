@@ -8,6 +8,7 @@ class Book(models.Model):
     isbn = models.CharField(max_length=13, unique=True)
     total_copies = models.PositiveIntegerField(default=1)
     available_copies = models.PositiveIntegerField(default=0)
+    cover_image = models.ImageField(upload_to='book_covers/', blank=True, null=True)  # ← novo
 
     def save(self, *args, **kwargs):
         if not self.id:  # Only set on creation
